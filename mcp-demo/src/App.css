@@ -3,6 +3,11 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .logo {
@@ -33,10 +38,115 @@
   }
 }
 
+h1 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .card {
   padding: 2em;
 }
 
 .read-the-docs {
   color: #888;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 360px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  backdrop-filter: blur(4px);
+}
+
+.square {
+  background: #ffffff;
+  border: none;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 0;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  color: #34495e;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.square:hover {
+  background: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.square[data-position*="col-0"] {
+  color: #e74c3c;
+}
+
+.square[data-position*="col-2"] {
+  color: #3498db;
+}
+
+.game-info {
+  margin: 20px auto;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(31, 38, 135, 0.1);
+}
+
+.status {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.restart-button {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.restart-button:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.restart-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Winner animation */
+@keyframes winner-glow {
+  0% { box-shadow: 0 0 5px rgba(46, 204, 113, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(46, 204, 113, 0.8); }
+  100% { box-shadow: 0 0 5px rgba(46, 204, 113, 0.5); }
+}
+
+.square.winner {
+  animation: winner-glow 2s infinite;
+  background: #2ecc71;
+  color: white;
 }
